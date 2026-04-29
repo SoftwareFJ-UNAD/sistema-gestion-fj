@@ -1,0 +1,14 @@
+[2026-04-29 18:28:31] [INFO] === INICIO DE EJECUCIÓN DEL SISTEMA ===
+[2026-04-29 18:28:31] [INFO] Servicio creado: ReservaSalas - 'Sala Ejecutiva' ($50/hora)
+[2026-04-29 18:28:31] [INFO] Servicio creado: ReservaSalas - 'Sala VIP' ($80/hora)
+[2026-04-29 18:28:31] [INFO] Servicio creado: AlquilerEquipos - 'Laptop Gaming' ($15/hora)
+[2026-04-29 18:28:31] [INFO] Servicio creado: AlquilerEquipos - 'Proyector 4K' ($20/hora)
+[2026-04-29 18:28:31] [INFO] Servicio creado: Asesoria - 'Asesoría en Python' ($40/hora)
+[2026-04-29 18:28:31] [INFO] Servicio creado: Asesoria - 'Asesoría en POO Avanzado' ($60/hora)
+[2026-04-29 18:28:31] [INFO] Cliente creado exitosamente: Ana María Rodríguez
+[2026-04-29 18:28:31] [INFO] Cliente creado exitosamente: Pedro Martínez
+[2026-04-29 18:28:31] [INFO] Nueva reserva creada: Cliente=Ana María Rodríguez, Servicio=Sala Ejecutiva, Duración=3h, Fecha=2025-05-15
+[2026-04-29 18:28:31] [INFO] ReservaSalas: 3h, base $150.00, sin descuento
+[2026-04-29 18:28:31] [INFO] Reserva CONFIRMADA: Cliente=Ana María Rodríguez, Servicio=Sala Ejecutiva, Costo=$150.00
+[2026-04-29 18:28:31] [INFO] Nueva reserva creada: Cliente=Ana María Rodríguez, Servicio=Sala VIP, Duración=-2h, Fecha=2025-05-16
+[2026-04-29 18:28:31] [ERROR] Error al calcular costo para reserva de Ana María Rodríguez: La duración debe ser positiva (recibido: -2)
