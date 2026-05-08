@@ -77,10 +77,16 @@ class Cliente:
         if not valor:
             raise DatosClienteInvalidosError("El nombre no puede estar vacío")
         
-        # Validación: nombre con longitud mínima
+        # Validar longitud mínima del nombre
         if len(valor.strip()) < 3:
             raise DatosClienteInvalidosError(
                 f"El nombre debe tener al menos 3 caracteres (recibido: '{valor}')"
+            )
+
+        # Validar que el nombre no contenga números
+        if any(char.isdigit() for char in valor):
+            raise DatosClienteInvalidosError(
+                f"El nombre no puede contener números"
             )
         
         # Asignación después de validar
@@ -144,10 +150,10 @@ class Cliente:
                 f"Teléfono inválido: '{valor}'. Debe contener solo números"
             )
         
-        # Verificar longitud mínima
-        if len(valor_limpio) < 7:
+        # Verificar longitud válida
+        if len(valor_limpio) < 7 or len(valor_limpio) > 10:
             raise DatosClienteInvalidosError(
-                f"Teléfono inválido: debe tener al menos 7 dígitos (tiene {len(valor_limpio)})"
+                f"El teléfono debe tener entre 7 y 10 dígitos"
             )
         
         self._telefono = valor_limpio
@@ -162,7 +168,7 @@ class Cliente:
         --------
         str: Formato "Nombre (Email)"
         """
-        return f"{self._nombre} ({self._email})"
+        return f"Cliente: {self._nombre} | Email: {self._email} | Tel: {self._telefono}"
     
     def obtener_resumen(self):
         """
