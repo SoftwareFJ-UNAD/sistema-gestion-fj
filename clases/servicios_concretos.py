@@ -7,8 +7,8 @@ clase abstracta Servicio: ReservaSalas, AlquilerEquipos y Asesoria.
 Cada servicio tiene su propia lógica de cálculo de costos y descripción,
 demostrando el principio de POLIMORFISMO.
 
-Autor: Victor Morales
-Fecha: 2025
+Autor: jesus tocora
+Fecha: 2026
 """
 
 from clases.servicio import Servicio
@@ -284,3 +284,63 @@ class Asesoria(Servicio):
         """
         return (f"🎓 Asesoría Especializada - {self.nombre}: ${self.precio_base}/hora + "
                 f"cargo según nivel (Básico:$0, Intermedio:$50, Avanzado:$100)")
+                class ServicioPremium(Servicio):
+    """
+    SERVICIO PREMIUM
+    ================
+    Servicio de alta gama con beneficios adicionales.
+    Incluye soporte 24/7 y atención prioritaria.
+    
+    Fórmula de costo:
+        costo = precio_base * duracion * multiplicador_premium
+    
+    Reglas de negocio:
+        - Multiplicador premium: 1.5 (50% más caro que servicio normal)
+        - Incluye descuento especial para clientes frecuentes
+    """
+    
+    MULTIPLICADOR_PREMIUM = 1.5  # 50% más caro
+    
+    def calcular_costo(self, duracion, **kwargs):
+        """
+        Calcula el costo de un servicio premium.
+        
+        Parámetros:
+        -----------
+        duracion : float - Horas del servicio
+        **kwargs : dict
+            - cliente_frecuente (bool): Si es True, aplica 10% descuento
+        
+        Retorna:
+        --------
+        float - Costo total del servicio premium
+        """
+        # Validar duración
+        self.validar_parametros(duracion)
+        
+        # Calcular costo base premium
+        costo_base = self.precio_base * duracion * self.MULTIPLICADOR_PREMIUM
+        
+        # Aplicar descuento para cliente frecuente
+        if kwargs.get("cliente_frecuente", False):
+            descuento = 0.10  # 10% de descuento
+            costo_final = costo_base * (1 - descuento)
+            LoggerSistema.registrar_evento(
+                f"ServicioPremium: {duracion}h, base ${costo_base:.2f}, "
+                f"descuento cliente frecuente 10% = ${costo_final:.2f}"
+            )
+        else:
+            costo_final = costo_base
+            LoggerSistema.registrar_evento(
+                f"ServicioPremium: {duracion}h, costo final ${costo_final:.2f}"
+            )
+        
+        return round(costo_final, 2)
+    
+    def describir(self):
+        """
+        Descripción del servicio premium.
+        """
+        return (f"⭐ Servicio Premium - {self.nombre}: ${self.precio_base}/hora "
+                f"(x{self.MULTIPLICADOR_PREMIUM} por ser premium). "
+                f"Incluye soporte 24/7 y atención prioritaria.")

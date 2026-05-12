@@ -104,7 +104,9 @@ def main():
     servicio_proyector = AlquilerEquipos("Proyector 4K", 20)
     servicio_python = Asesoria("Asesoría en Python", 40)
     servicio_poo = Asesoria("Asesoría en POO Avanzado", 60)
-    
+    servicio_premium = ServicioPremium("Consultoría Premium", 100)
+    servicios.append(servicio_premium)
+
     # Almacenar en lista
     servicios.extend([servicio_sala, servicio_sala_vip, servicio_laptop, 
                      servicio_proyector, servicio_python, servicio_poo])
