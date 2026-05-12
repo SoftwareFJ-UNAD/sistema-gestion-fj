@@ -20,7 +20,7 @@ Este programa demuestra la aplicación de:
 4. Sin bases de datos (solo listas en memoria)
 
 Autor: Victor Morales
-Fecha: 2025
+Fecha: 2026
 """
 
 import os
