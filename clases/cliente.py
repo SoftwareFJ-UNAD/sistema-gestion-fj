@@ -9,7 +9,7 @@ protegen el estado interno del objeto y lanzan excepciones
 personalizadas cuando los datos son inválidos.
 
 Autor: Victor Morales
-Fecha: 2025
+Fecha: 2026
 """
 
 import re  # Expresiones regulares para validar formato de email
