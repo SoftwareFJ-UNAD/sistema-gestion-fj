@@ -20,7 +20,7 @@ DEMOSTRACIÓN DE MANEJO DE EXCEPCIONES:
 - Encadenamiento de excepciones con 'raise from'
 
 Autor: Victor Morales
-Fecha: 2025
+Fecha: 2026
 """
 
 import datetime  # Para manejar fechas y timestamps
