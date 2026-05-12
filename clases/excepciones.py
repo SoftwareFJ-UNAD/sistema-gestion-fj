@@ -6,7 +6,7 @@ Cada excepción hereda de la clase base 'Exception' para permitir
 un manejo diferenciado de errores según el tipo de situación.
 
 Autor: Victor Morales
-Fecha: 2025
+Fecha: 2026
 """
 
 
